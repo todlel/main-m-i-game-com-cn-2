@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://todlel.github.io/main-m-i-game-com-cn-2/sitemap.xml

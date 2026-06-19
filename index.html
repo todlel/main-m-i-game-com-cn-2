@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从主题到场景 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafaf8;
+      color: #2c2c2c;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 开场短句 ———— 安静地起笔 */
+    .opening {
+      margin-top: 2.4rem;
+      font-size: 1.5rem;
+      font-weight: 350;
+      letter-spacing: 0.02em;
+      color: #1e1e1e;
+      border-left: 3px solid #b0b0a0;
+      padding-left: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .opening span {
+      display: block;
+      font-size: 1rem;
+      color: #6e6e65;
+      margin-top: 0.35rem;
+      font-weight: 300;
+    }
+
+    /* 承接段落 */
+    .context {
+      margin: 2.6rem 0 1.8rem;
+      font-size: 1rem;
+    }
+
+    .context p {
+      margin-bottom: 1.25rem;
+    }
+
+    .context a {
+      color: #2b5f5f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #bcc6c0;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    .context a:hover {
+      color: #154545;
+      text-decoration-color: #154545;
+    }
+
+    /* 特点列表 ———— 卡片式，不花哨 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 2.4rem 0 2.8rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #ecece6;
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-title {
+      font-weight: 500;
+      font-size: 1.04rem;
+      letter-spacing: 0.01em;
+      color: #1f2b2b;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-desc {
+      font-size: 0.93rem;
+      color: #4d4d47;
+      line-height: 1.6;
+    }
+
+    /* 温和结尾 */
+    .closing {
+      margin: 2.4rem 0 3rem;
+      padding: 1.2rem 0 1.8rem;
+      border-top: 1px solid #e3e1d9;
+      font-size: 0.95rem;
+      color: #4f4f48;
+    }
+
+    .closing p {
+      margin-bottom: 0.6rem;
+    }
+
+    .closing a {
+      color: #2b5f5f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    .closing a:hover {
+      color: #154545;
+    }
+
+    /* 简单响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .opening {
+        font-size: 1.3rem;
+        padding-left: 1rem;
+      }
+
+      .feature-item {
+        padding: 1rem 1.1rem;
+      }
+    }
+
+    /* 辅助排版 */
+    .small-note {
+      color: #7d7d73;
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ebeae3;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+      一个主题，一片可以沉浸的领域
+      <span>—— 围绕游戏内容展开的整理与介绍</span>
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="context">
+      <p>
+        很多时候，我们谈论一个平台或空间，其实是在谈论它背后所承载的内容方向。
+        这次想要介绍的主题，核心围绕「游戏」展开——不只是简单的入口或列表，
+        而是一种更贴近玩家日常的内容组织方式。
+      </p>
+      <p>
+        如果你恰好对这类话题感兴趣，或许可以花几分钟了解一下
+        <a href="https://main-m-i-game.com.cn">爱游戏</a>。
+        它不是一个喧闹的集合，而更像一个安静的内容角落，把与游戏相关的信息、场景、思路整理到一起。
+      </p>
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-title">内容场景 · 不只推荐</div>
+        <div class="feature-desc">
+          从特定主题出发，梳理游戏相关的背景与玩法视角，
+          而不是简单的排行榜或广告式陈列。
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">信息结构 · 平实克制</div>
+        <div class="feature-desc">
+          没有夸张的弹窗或诱导点击，页面围绕「整理与介绍」组织，
+          让访客可以按自己的节奏阅读。
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">持续沉淀 · 非一次性</div>
+        <div class="feature-desc">
+          内容会随着主题理解加深而逐步补充，不是一次发布后就无人维护的静态页面。
+        </div>
+      </div>
+    </div>
+
+    <!-- 一个小场景段落，增加层次 -->
+    <p style="font-size:0.96rem; color:#3f3f39; margin-bottom:0.2rem;">
+      举个例子：当你点开某个游戏主题的文章，里面可能包含背景设定、玩法拆解，
+      或是开发思路的探讨——而不是只有一句“好玩”或者一个链接。
+    </p>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+      <p>
+        如果你愿意从一个更安静的角度来看待游戏内容，
+        那么 <a href="https://main-m-i-game.com.cn">爱游戏</a> 可能是一个值得偶尔翻翻的地方。
+        它不追赶热点，也不制造焦虑，只是认真地把一个主题下的内容整理好。
+      </p>
+      <p>
+        最后，希望这里的文字能带来一些启发，或是一小段有价值的阅读时间。
+      </p>
+      <div class="small-note">
+        — 基于主题内容整理 · 持续更新中
+      </div>
+    </div>
+
+    <!-- 简洁分隔与faq摘要风格提示（不喧宾夺主） -->
+    <hr>
+    <div style="font-size:0.88rem; color:#6b6b62; line-height:1.6;">
+      <p style="margin-bottom:0.4rem;"><strong>常见内容方向</strong> · 主题整理 / 游戏背景 / 玩法思路 / 场景随笔</p>
+      <p>页面不收集个人信息，不嵌入外部追踪脚本，内容仅作介绍参考。</p>
+    </div>
+
+  </div>
+</body>
+</html>
