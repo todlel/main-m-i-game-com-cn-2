@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 轻量导航页</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f7fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      padding: 0 20px;
+    }
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 0 60px;
+    }
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0 16px;
+      border-bottom: 1px solid #d1e2e9;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #0f766e;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo span { font-size: 1.6rem; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0f766e; }
+    /* Hero */
+    .hero {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0f3b3a;
+      letter-spacing: -0.3px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      color: #475569;
+      margin-top: 8px;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #ccfbf1;
+      color: #0f766e;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      width: fit-content;
+      margin-bottom: 4px;
+    }
+    /* 核心介绍 */
+    .core-intro {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin: 40px 0 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e2edf2;
+    }
+    .core-intro h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #114240;
+      margin-bottom: 16px;
+    }
+    .core-intro p {
+      color: #2c3e50;
+      margin-bottom: 14px;
+    }
+    .core-intro a {
+      color: #0f766e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+    .core-intro a:hover { color: #0b5c56; }
+    /* 三个场景网格卡片 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .scene-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 22px;
+      box-shadow: 0 2px 8px rgba(0,80,70,0.06);
+      border: 1px solid #dee9ed;
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(15, 118, 110, 0.08);
+    }
+    .scene-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      background: #e6f7f2;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+    }
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f3b3a;
+      margin-bottom: 10px;
+    }
+    .scene-card p {
+      color: #3b4b5a;
+      font-size: 0.95rem;
+    }
+    /* 常见说明区域 */
+    .faq-section {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 28px;
+      margin: 40px 0;
+      border: 1px solid #dbeaf0;
+    }
+    .faq-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #114240;
+      margin-bottom: 28px;
+    }
+    .faq-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #ecf3f7;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 600;
+      color: #1e3a3a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-q::before {
+      content: "○";
+      color: #0f766e;
+      font-size: 0.9rem;
+    }
+    .faq-a {
+      color: #475569;
+      padding-left: 24px;
+      font-size: 0.95rem;
+    }
+    .faq-a a {
+      color: #0f766e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .faq-a a:hover { color: #0a5c53; }
+    /* 小提示 / 收藏 */
+    .bookmark-note {
+      background: #dff1ed;
+      border-radius: 40px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      margin: 30px 0 10px;
+    }
+    .bookmark-note p {
+      color: #1a4e48;
+      font-size: 1rem;
+      flex: 1;
+    }
+    .bookmark-note .tag {
+      background: white;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-weight: 600;
+      color: #0f766e;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .scene-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 16px 20px;
+      }
+      .hero h1 { font-size: 1.8rem; }
+      .core-intro { padding: 28px 20px; }
+      .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .faq-section { padding: 24px 18px; }
+      .bookmark-note { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 1.6rem; }
+      body { padding: 0 14px; }
+    }
+    footer {
+      text-align: center;
+      color: #869baa;
+      font-size: 0.85rem;
+      margin-top: 48px;
+      border-top: 1px solid #dce8ee;
+      padding-top: 28px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="logo"><span>◆</span> 轻导航</div>
+    <ul class="nav-links">
+      <li><a href="#core">介绍</a></li>
+      <li><a href="#scenes">场景</a></li>
+      <li><a href="#faq">说明</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="tagline">再次回来 · 已经收藏</div>
+    <h1>熟悉的地方，再访依旧从容</h1>
+    <p>每次打开都是一次新的确认，所有积累都在这里。不必担心忘记路径，<br>把值得反复回看的页面保留在书签中，随时回到同一片空间。</p>
+  </div>
+
+  <!-- 核心介绍 -->
+  <div class="core-intro" id="core">
+    <h2>从收藏到习惯，从回访到深入</h2>
+    <p>很多朋友最初是因为对<a href="https://main-baijiale.com">百家乐</a>的好奇而来，后来发现这里的内容节奏和自己很合拍。信息清晰、更新稳定，没有多余的干扰。慢慢就会形成一种自然习惯——有空的时候点开书签，看看有没有新内容，或者只是随便浏览一下。</p>
+    <p>我们一直相信，好的站点不需要用力推荐，而是让用户在一次次返回中确认它的价值。如果你还没有把页面存为书签，不妨现在试一下，下次再回来会更方便。</p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scene-grid" id="scenes">
+    <div class="scene-card">
+      <div class="scene-icon">📁</div>
+      <h3>重新打开</h3>
+      <p>浏览器收藏夹里已经存好的链接，直接点击就能回到熟悉的内容流。不需要重新搜索，也不用回忆地址。</p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">🔖</div>
+      <h3>持续关注</h3>
+      <p>页面会保持稳定的更新节奏，每次回来都可能遇到新的段落或调整，但核心始终围绕你最初关注的领域展开。</p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">🔄</div>
+      <h3>反复参照</h3>
+      <p>有些内容适合多次阅读，每次理解都可能不同。把页面放在手边，方便随时对照、思考或单纯放松浏览。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明摘要 FAQ -->
+  <div class="faq-section" id="faq">
+    <h2>一些你可能想了解的</h2>
+    <div class="faq-item">
+      <div class="faq-q">页面每次访问都一样吗？</div>
+      <div class="faq-a">主要框架保持稳定，但内容会不定时补充和微调。如果你隔一段时间再回来，可能会看到更新的部分。但所有调整都不会破坏你之前的使用习惯。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何快速回到这里？</div>
+      <div class="faq-a">建议使用浏览器自带的「添加书签」或「收藏」功能，给页面取一个容易找到的名字，比如直接写「<a href="https://main-baijiale.com">百家乐</a>」。下次从书签栏单击即可。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容适合哪些人？</div>
+      <div class="faq-a">主要是对相关话题保持兴趣、希望有稳定信息源的朋友。我们不说教也不夸张，只呈现经过梳理的内容，适合自主阅读和反复参考。</div>
+    </div>
+  </div>
+
+  <!-- 收藏提示 -->
+  <div class="bookmark-note">
+    <p>💡 如果你还没有收藏这个页面，现在可以把地址加入书签。下次想回来的时候，不需要再搜索，直接点一下就好。</p>
+    <span class="tag">⌘+D / Ctrl+D</span>
+  </div>
+
+  <footer>
+    保持熟悉 · 随时回来
+  </footer>
+
+</div>
+</body>
+</html>
